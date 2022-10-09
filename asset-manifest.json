@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/countries-api-typescript/static/js/main.11d7d26a.js",
+    "index.html": "/countries-api-typescript/index.html",
+    "main.11d7d26a.js.map": "/countries-api-typescript/static/js/main.11d7d26a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.11d7d26a.js"
+  ]
+}
