@@ -1,0 +1,16 @@
+header {
+  background: $white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 0.35em $darkGray;
+  padding: 1.8125em 1em;
+
+  @include for-desktop(medium) {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+
+  h1 {
+    font-size: 1.1875em;
+  }
+}

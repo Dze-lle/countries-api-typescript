@@ -1,5 +1,10 @@
 .app {
   &.dark {
-    background: $veryDarkBlue;
+    background: $darkBlueLight;
+    header {
+      background: $darkBlue;
+      box-shadow: 0 0 0.35em $veryDarkBlueLight;
+      color: $white;
+    }
   }
 }

@@ -1,18 +1,18 @@
 import { useTheme } from "../hooks/useTheme";
 
-const Navbar = () => {
+const Header = () => {
   const { darkMode, dispatch } = useTheme();
 
   return (
-    <nav className="nav">
+    <header>
       <h1>where in the world?</h1>
       <button
         onClick={() => dispatch({ type: "TOGGLE_MODE", payload: !darkMode })}
       >
         dark mode
       </button>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
