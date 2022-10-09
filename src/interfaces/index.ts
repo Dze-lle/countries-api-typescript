@@ -1,3 +1,3 @@
-export interface ITheme {
+export interface IGlobalTheme {
   darkMode: boolean;
 }

@@ -17,8 +17,4 @@ body {
 .app {
   height: 100vh;
   background: $veryLightGray;
-
-  &.dark {
-    background: $veryDarkBlue;
-  }
 }
