@@ -6,9 +6,7 @@ const Header = () => {
   return (
     <header>
       <h1>where in the world?</h1>
-      <button
-        onClick={() => dispatch({ type: "TOGGLE_MODE", payload: !darkMode })}
-      >
+      <button onClick={() => dispatch({ type: "TOGGLE_MODE" })}>
         dark mode
       </button>
     </header>
