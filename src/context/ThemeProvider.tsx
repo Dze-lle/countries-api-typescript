@@ -3,8 +3,8 @@ import { IGlobalTheme } from "../interfaces";
 import { ThemeContext } from "./ThemeContext";
 import { ThemeReducer } from "./ThemeReducer";
 
-const { darkMode } = localStorage.getItem("themeMode")
-  ? JSON.parse(localStorage.getItem("themeMode")!)
+const { darkMode } = localStorage.getItem("ThemeState")
+  ? JSON.parse(localStorage.getItem("ThemeState")!)
   : false;
 
 const INITIAL_STATE: IGlobalTheme = {
@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }: props) => {
   const [globalTheme, dispatch] = useReducer(ThemeReducer, INITIAL_STATE);
 
   useEffect(() => {
-    localStorage.setItem("themeMode", JSON.stringify(globalTheme));
+    localStorage.setItem("ThemeState", JSON.stringify(globalTheme));
   }, [globalTheme.darkMode]);
 
   return (
