@@ -2,7 +2,7 @@ header {
   background: $white;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 0 0.35em $darkGray;
+  box-shadow: 0 0 0.35em $lightShadow;
   padding: 1.8125em 1em;
 
   @include for-desktop(medium) {
