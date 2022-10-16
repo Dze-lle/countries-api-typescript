@@ -1,4 +1,5 @@
 import { FaSearch } from "react-icons/fa";
+import Select from "react-select";
 
 const SearchCountries = () => {
   return (
@@ -7,16 +8,8 @@ const SearchCountries = () => {
         <FaSearch className="icon" />
         <input type="search" name="" id="" placeholder="Search for a country" />
       </div>
-      <select name="countries" id="countries">
-        <option className="option" value="0">
-          filter by region
-        </option>
-        <option value="africa">africa</option>
-        <option value="america">america</option>
-        <option value="asia">asia</option>
-        <option value="europe">europe</option>
-        <option value="oceania">oceania</option>
-      </select>
+
+      <Select />
     </div>
   );
 };

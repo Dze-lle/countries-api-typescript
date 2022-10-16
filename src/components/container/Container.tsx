@@ -5,7 +5,9 @@ const Container = () => {
   return (
     <section className="container">
       <SearchCountries />
-      <ListCountries />
+      <div className="container__article">
+        <ListCountries />
+      </div>
     </section>
   );
 };

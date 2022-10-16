@@ -1,4 +1,3 @@
-import Navbar from "./components/Header";
 import "./assets/scss/style.scss";
 import { useTheme } from "./hooks/useTheme";
 import Header from "./components/Header";
