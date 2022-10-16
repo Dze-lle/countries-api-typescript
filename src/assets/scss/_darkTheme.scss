@@ -6,5 +6,28 @@
       box-shadow: 0 0 0.35em $veryDarkBlueLight;
       color: $white;
     }
+
+    .container {
+      .search {
+        background: $darkBlue;
+        box-shadow: 0 0 0.3125em $veryDarkBlueLight;
+        .icon {
+          color: $white;
+        }
+        input {
+          color: $white;
+        }
+      }
+
+      &__article {
+        article {
+          background: $darkBlue;
+          box-shadow: 0 0 0.3125em $veryDarkBlueLight;
+          .details {
+            color: $white;
+          }
+        }
+      }
+    }
   }
 }
