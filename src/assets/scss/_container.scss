@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: column;
 
+    @include for-desktop(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+
     .search {
       width: 100%;
       background-color: $white;
@@ -15,6 +21,10 @@
       padding: 0.9375em 1.875em;
       display: flex;
       align-items: center;
+
+      @include for-desktop(medium) {
+        width: 50%;
+      }
 
       .icon {
         color: $darkGray;
@@ -35,6 +45,14 @@
   &__article {
     padding: 0 40px;
 
+    @include for-desktop(medium) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+      padding: 0px;
+      width: 100%;
+      gap: 5em;
+    }
+
     article {
       margin-top: 50px;
       background-color: $white;
@@ -42,9 +60,12 @@
       border-radius: 0.43em;
       overflow: hidden;
 
+      @include for-desktop(medium) {
+        margin-top: 0;
+      }
+
       img {
         width: 100%;
-        max-width: 400px;
       }
 
       .details {

@@ -7,6 +7,10 @@ const Container = () => {
       <SearchCountries />
       <div className="container__article">
         <ListCountries />
+        <ListCountries />
+        <ListCountries />
+        <ListCountries />
+        <ListCountries />
       </div>
     </section>
   );
