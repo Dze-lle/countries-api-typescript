@@ -3,8 +3,9 @@ export interface IGlobalTheme {
 }
 
 export interface ICountries {
-  flag: string;
   region: string;
   name: { common: string };
   flags: { png: string; svg: string };
+  capital: string;
+  population: number;
 }

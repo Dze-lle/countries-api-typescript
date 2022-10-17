@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { FaSearch } from "react-icons/fa";
 import Select from "react-select";
 
-const SearchCountries = () => {
+const SearchCountries: FC<string[]> = (regions) => {
   return (
     <div className="form-group">
       <div className="search">
