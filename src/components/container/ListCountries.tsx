@@ -1,26 +1,20 @@
 import { FC } from "react";
-import { ICountries } from "../../interfaces";
+import { ICountries } from "../../interfaces/interfaces";
 
-const ListCountries: FC<ICountries> = ({
-  flags,
-  name,
-  population,
-  region,
-  capital,
-}) => {
+const ListCountries: FC<ICountries> = (country) => {
   return (
     <article>
-      <img src={flags.png} alt={name.common} />
+      <img src={country.flags.png} alt={country.name.common} />
       <div className="details">
-        <p className="title">{name.common}</p>
+        <p className="title">{country.name.common}</p>
         <p className="population">
-          <strong>population:</strong> {population}
+          <span>population:</span> {country.population.toLocaleString("en-US")}
         </p>
         <p className="region">
-          <strong>region:</strong> {region}
+          <span>region:</span> {country.region}
         </p>
         <p className="capital">
-          <strong>capital:</strong> {capital}
+          <span>capital:</span> {country.capital}
         </p>
       </div>
     </article>

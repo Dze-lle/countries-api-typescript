@@ -1,8 +1,15 @@
 import { FC } from "react";
 import { FaSearch } from "react-icons/fa";
 import Select from "react-select";
+import { ICountries } from "../../interfaces/interfaces";
 
-const SearchCountries: FC<string[]> = (regions) => {
+const SearchCountries: FC = () => {
+  const students = [
+    { value: "Alex", label: "Alex" },
+    { value: "Deven", label: "Deven" },
+    { value: "Vinicious", label: "Vinicious" },
+  ];
+
   return (
     <div className="form-group">
       <div className="search">
@@ -10,7 +17,7 @@ const SearchCountries: FC<string[]> = (regions) => {
         <input type="search" name="" id="" placeholder="Search for a country" />
       </div>
 
-      <Select />
+      <Select options={students} />
     </div>
   );
 };

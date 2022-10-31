@@ -1,7 +1,7 @@
 import { useTheme } from "../hooks/useTheme";
 
 const Header = () => {
-  const { darkMode, dispatch } = useTheme();
+  const { dispatch } = useTheme();
 
   return (
     <header>

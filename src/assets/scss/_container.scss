@@ -66,10 +66,31 @@
 
       img {
         width: 100%;
+        height: 160px;
       }
 
       .details {
-        margin: 40px 0 60px 0;
+        margin: 40px 0;
+        font-size: 13px;
+        padding: 0 22px;
+
+        .title {
+          font-size: 17px;
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+
+        :is(.population, .region, .capital) {
+          color: $grayLight;
+          margin-top: 10px;
+          letter-spacing: 0.0525em;
+        }
+
+        :is(.population span, .region span, .capital span) {
+          text-transform: capitalize;
+          color: $lightShadow;
+          font-weight: 600;
+        }
       }
     }
   }

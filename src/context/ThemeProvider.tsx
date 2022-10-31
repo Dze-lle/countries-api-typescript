@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import { IGlobalTheme } from "../interfaces";
+import { IGlobalTheme } from "../interfaces/interfaces";
 import { ThemeContext } from "./ThemeContext";
 import { ThemeReducer } from "./ThemeReducer";
 

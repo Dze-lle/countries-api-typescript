@@ -1,4 +1,4 @@
-import { IGlobalTheme } from "../interfaces";
+import { IGlobalTheme } from "../interfaces/interfaces";
 
 export type ThemeAction = { type: "TOGGLE_MODE" };
 
