@@ -6,7 +6,7 @@ const ListCountries: FC<ICountries> = (country) => {
   const navigate = useNavigate();
 
   const handleDetails = (id: string) => {
-    navigate(`/${id}`);
+    navigate(`/countries-api-typescript/${id}`);
   };
 
   return (

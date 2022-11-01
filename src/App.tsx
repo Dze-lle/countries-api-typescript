@@ -1,5 +1,5 @@
 import "./assets/scss/style.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Header from "./components/Header";
@@ -17,7 +17,11 @@ function App() {
       ) : (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Header />}>
+            <Route
+              path="/"
+              element={<Navigate to="/countries-api-typescript" replace />}
+            />
+            <Route path="/countries-api-typescript" element={<Header />}>
               <Route index element={<Home />} />
               <Route path=":id" element={<Details />} />
             </Route>
