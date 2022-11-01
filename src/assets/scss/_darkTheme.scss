@@ -5,10 +5,18 @@
       background: $darkBlue;
       box-shadow: 0 0 0.35em $veryDarkBlueLight;
       color: $white;
+      button {
+        .icon {
+          color: $white;
+        }
+        span {
+          color: $white;
+        }
+      }
     }
 
     .loading {
-      color: white;
+      color: $white;
     }
 
     .container {

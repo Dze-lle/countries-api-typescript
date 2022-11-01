@@ -13,4 +13,19 @@ header {
   h1 {
     font-size: 1.1875em;
   }
+
+  button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      font-weight: 600;
+      margin: 0.5em;
+      text-transform: capitalize;
+    }
+  }
 }

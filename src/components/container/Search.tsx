@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { FaSearch } from "react-icons/fa";
 import Select from "react-select";
-import { ICountries } from "../../interfaces/interfaces";
 
 const Search: FC = () => {
   const students = [
