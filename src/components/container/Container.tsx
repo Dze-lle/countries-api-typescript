@@ -1,17 +1,17 @@
 import { useCountries } from "../../hooks/useCountries";
-import ListCountries from "./ListCountries";
-import SearchCountries from "./SearchCountries";
+import Article from "./Article";
+import Search from "./Search";
 
 const Container = () => {
   const { countries } = useCountries();
 
   return (
     <section className="container">
-      <SearchCountries />
+      <Search />
 
       <div className="container__article">
         {countries.map((country, index) => (
-          <ListCountries key={index} {...country} />
+          <Article key={index} {...country} />
         ))}
       </div>
     </section>

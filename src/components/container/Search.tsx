@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import Select from "react-select";
 import { ICountries } from "../../interfaces/interfaces";
 
-const SearchCountries: FC = () => {
+const Search: FC = () => {
   const students = [
     { value: "Alex", label: "Alex" },
     { value: "Deven", label: "Deven" },
@@ -22,4 +22,4 @@ const SearchCountries: FC = () => {
   );
 };
 
-export default SearchCountries;
+export default Search;

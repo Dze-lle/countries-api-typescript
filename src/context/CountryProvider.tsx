@@ -1,5 +1,5 @@
-import { useEffect, useReducer, useState } from "react";
-import { ICountries, IStateContext } from "../interfaces/interfaces";
+import { useEffect, useState } from "react";
+import { ICountries } from "../interfaces/interfaces";
 import { BASE_URL } from "../lib/api";
 import { CountryContext } from "./CountryContext";
 

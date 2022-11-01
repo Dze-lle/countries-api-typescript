@@ -27,14 +27,14 @@
         article {
           background: $darkBlue;
           box-shadow: 0 0 0.3125em $veryDarkBlueLight;
-          .details {
+          .description {
             color: $white;
 
-            :is(.population, .region, .capital) {
+            :is(&__population, &__region, &__capital) {
               color: $grayLight;
             }
 
-            :is(.population span, .region span, .capital span) {
+            :is(&__population span, &__region span, &__capital span) {
               color: $lightShadow;
             }
           }

@@ -1,0 +1,43 @@
+article {
+  margin-top: 50px;
+  background: $white;
+  box-shadow: 0 0 0.3125em $lightShadow;
+  border-radius: 0.43em;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 200ms linear;
+  }
+
+  @include for-desktop(medium) {
+    margin-top: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .description {
+    margin: 40px 0;
+    font-size: 13px;
+    padding: 0 22px;
+
+    &__title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    :is(&__population, &__region, &__capital) {
+      margin-top: 10px;
+      letter-spacing: 0.0525em;
+    }
+
+    :is(&__population span, &__region span, &__capital span) {
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+}

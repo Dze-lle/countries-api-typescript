@@ -2,25 +2,25 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { ICountries } from "../../interfaces/interfaces";
 
-const ListCountries: FC<ICountries> = (country) => {
+const Article: FC<ICountries> = (country) => {
   const navigate = useNavigate();
 
-  const handleDetails = (id: string) => {
+  const handleNavigateId = (id: string) => {
     navigate(`/countries-api-typescript/${id}`);
   };
 
   return (
-    <article onClick={() => handleDetails(country.ccn3)}>
+    <article onClick={() => handleNavigateId(country.ccn3)}>
       <img src={country.flags.png} alt={country.name.common} />
-      <div className="details">
-        <p className="title">{country.name.common}</p>
-        <p className="population">
+      <div className="description">
+        <p className="description__title">{country.name.common}</p>
+        <p className="description__population">
           <span>population:</span> {country.population.toLocaleString("en-US")}
         </p>
-        <p className="region">
+        <p className="description__region">
           <span>region:</span> {country.region}
         </p>
-        <p className="capital">
+        <p className="description__capital">
           <span>capital:</span> {country.capital}
         </p>
       </div>
@@ -28,4 +28,4 @@ const ListCountries: FC<ICountries> = (country) => {
   );
 };
 
-export default ListCountries;
+export default Article;
