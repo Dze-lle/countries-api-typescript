@@ -15,16 +15,14 @@ export const CountryProvider = ({ children }: props) => {
   async function getCountries() {
     setIsLoading(true);
     setError(false);
-    return fetch(BASE_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setCountries(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setError(true);
-        setIsLoading(false);
-      });
+    try {
+      const response = await fetch(BASE_URL);
+      const data = await response.json();
+      setCountries(data);
+      setIsLoading(false);
+    } catch (err) {
+      setError(true);
+    }
   }
 
   useEffect(() => {

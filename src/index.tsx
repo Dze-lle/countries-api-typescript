@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { CountryProvider } from "./context/CountryProvider";
 import { ThemeProvider } from "./context/ThemeProvider";
+import { useTheme } from "./hooks/useTheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

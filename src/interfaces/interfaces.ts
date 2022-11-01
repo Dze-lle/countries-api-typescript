@@ -3,6 +3,7 @@ export interface IGlobalTheme {
 }
 
 export interface ICountries {
+  ccn3: string;
   capital: string;
   flags: { png: string; svg: string };
   name: { common: string };

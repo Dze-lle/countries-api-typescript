@@ -1,8 +1,9 @@
 import "./assets/scss/style.scss";
-import { useTheme } from "./hooks/useTheme";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 import Header from "./components/Header";
-import Container from "./components/container/Container";
-import Footer from "./components/Footer";
+import { useTheme } from "./hooks/useTheme";
 import { useCountries } from "./hooks/useCountries";
 
 function App() {
@@ -12,26 +13,16 @@ function App() {
   return (
     <main className={`app ${darkMode ? `dark` : ``}`}>
       {isLoading ? (
-        <p
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            fontSize: "25px",
-            fontWeight: "bold",
-            fontStyle: "italic",
-            height: "100vh",
-          }}
-        >
-          Loading...
-        </p>
+        <p className="loading">loading...</p>
       ) : (
-        <>
-          <Header />
-          <Container />
-          <Footer />
-        </>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Header />}>
+              <Route index element={<Home />} />
+              <Route path=":id" element={<Details />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       )}
     </main>
   );

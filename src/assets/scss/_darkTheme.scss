@@ -7,6 +7,10 @@
       color: $white;
     }
 
+    .loading {
+      color: white;
+    }
+
     .container {
       .search {
         background: $darkBlue;
@@ -25,6 +29,14 @@
           box-shadow: 0 0 0.3125em $veryDarkBlueLight;
           .details {
             color: $white;
+
+            :is(.population, .region, .capital) {
+              color: $grayLight;
+            }
+
+            :is(.population span, .region span, .capital span) {
+              color: $lightShadow;
+            }
           }
         }
       }

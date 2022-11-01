@@ -60,6 +60,11 @@
       border-radius: 0.43em;
       overflow: hidden;
 
+      &:hover {
+        transform: scale(1.05);
+        transition: all 200ms linear;
+      }
+
       @include for-desktop(medium) {
         margin-top: 0;
       }
@@ -81,15 +86,13 @@
         }
 
         :is(.population, .region, .capital) {
-          color: $grayLight;
           margin-top: 10px;
           letter-spacing: 0.0525em;
         }
 
         :is(.population span, .region span, .capital span) {
           text-transform: capitalize;
-          color: $lightShadow;
-          font-weight: 600;
+          font-weight: bold;
         }
       }
     }
