@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ICountries } from "../interfaces/interfaces";
-import { BASE_URL } from "../lib/api";
+import { getListCountries } from "../lib/api";
 import { CountryContext } from "./CountryContext";
+import PromisePool from "@supercharge/promise-pool";
 
 type props = {
   children: JSX.Element | JSX.Element[];
@@ -12,13 +13,19 @@ export const CountryProvider = ({ children }: props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setError] = useState(false);
 
-  async function getCountries() {
+  async function setListCountries() {
     setIsLoading(true);
     setError(false);
     try {
-      const response = await fetch(BASE_URL);
-      const data = await response.json();
-      setCountries(data);
+      const data = await getListCountries();
+
+      const { results } = await PromisePool.withConcurrency(15)
+        .for(data)
+        .process(async (res) => {
+          return await res;
+        });
+
+      setCountries(results);
       setIsLoading(false);
     } catch (err) {
       setError(true);
@@ -26,7 +33,7 @@ export const CountryProvider = ({ children }: props) => {
   }
 
   useEffect(() => {
-    getCountries();
+    setListCountries();
   }, []);
 
   return (
