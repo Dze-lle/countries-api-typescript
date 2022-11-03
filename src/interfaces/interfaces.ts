@@ -12,7 +12,7 @@ export interface ICountries {
   subregion: string;
   population: number;
   nativeName: string;
-  currencies: [{ code: string }];
+  currencies: [{ code: string; name: string; symbol: string }];
   languages: [{ name: string }];
   borders: [];
 }

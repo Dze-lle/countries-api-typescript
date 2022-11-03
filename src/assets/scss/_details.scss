@@ -1,9 +1,13 @@
 .details {
   height: calc(100vh - 91.31px);
-  margin-top: 80px;
   padding: 0 20px;
 
+  @include for-desktop(medium) {
+    padding: 0 80px;
+  }
+
   &__button {
+    margin: 80px 0;
     color: $darkBlue;
     text-decoration: none;
     box-shadow: 2px 4px 0.35em $lightShadow;
@@ -22,12 +26,45 @@
   }
 
   &__container {
+    @include for-desktop(medium) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+      gap: 5em;
+    }
+
     img {
-      width: 100%;
+      @include for-desktop(medium) {
+        width: 100%;
+        max-width: 560px;
+        height: 100%;
+        max-height: 400px;
+      }
       height: 261px;
     }
 
-    .characteristics {
+    .country {
+      @include for-desktop(medium) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+      }
+
+      &__left {
+        strong {
+          text-transform: capitalize;
+        }
+        @include for-desktop(medium) {
+          h4 {
+            font-size: 30px;
+          }
+        }
+      }
+      &__right {
+        strong {
+          text-transform: capitalize;
+        }
+        @include for-desktop(medium) {
+        }
+      }
     }
   }
 }

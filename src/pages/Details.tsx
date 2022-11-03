@@ -25,8 +25,22 @@ const Details = () => {
 
       <div className="details__container">
         <img src={country?.flags.png} alt={country?.name} />
-        <div className="characteristics">
-          <h4>{country?.name}</h4>
+        <div className="country">
+          <div className="country__left">
+            <h4>{country?.name}</h4>
+            <strong>native name:</strong> {country?.nativeName}
+            <strong>region:</strong> {country?.region}
+            <strong>sub region:</strong> {country?.subregion}
+            <strong>capital:</strong> {country?.capital}
+          </div>
+          <div className="country__right">
+            <strong>top level domain:</strong> {country?.topLevelDomain}
+            <strong>currencies:</strong>{" "}
+            {country?.currencies.map((a) => a.name)}
+            <strong>languages:</strong>{" "}
+            {country?.languages.map((a) => a.name).join(", ")}
+          </div>
+          <strong className="country__border">border countries:</strong>
         </div>
       </div>
     </section>
