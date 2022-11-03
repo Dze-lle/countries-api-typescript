@@ -18,8 +18,7 @@ export const CountryProvider = ({ children }: props) => {
     setError(false);
     try {
       const data = await getListCountries();
-
-      const { results } = await PromisePool.withConcurrency(15)
+      const { results } = await PromisePool.withConcurrency(20)
         .for(data)
         .process(async (res) => {
           return await res;

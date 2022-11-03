@@ -3,12 +3,18 @@ export interface IGlobalTheme {
 }
 
 export interface ICountries {
-  ccn3: string;
+  alpha3Code: string;
+  topLevelDomain: string;
   capital: string;
-  flags: { png: string; svg: string };
-  name: { common: string };
+  flags: { png: string };
+  name: string;
   region: string;
+  subregion: string;
   population: number;
+  nativeName: string;
+  currencies: [{ code: string }];
+  languages: [{ name: string }];
+  borders: [];
 }
 
 export interface IStateContext {
