@@ -1,27 +1,33 @@
 .details {
   height: calc(100vh - 91.31px);
   padding: 0 20px;
+  background: $white;
 
   @include for-desktop(medium) {
     padding: 0 80px;
   }
 
   &__button {
-    margin: 80px 0;
-    color: $darkBlue;
-    text-decoration: none;
-    box-shadow: 2px 4px 0.35em $lightShadow;
-    padding: 11px 22px;
-    background-color: $white;
-    width: 106px;
+    height: 106px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-
-    span {
-      text-transform: capitalize;
-      margin-left: 0.5em;
+    margin-top: 0.2em;
+    .btn {
+      color: $darkBlue;
+      text-decoration: none;
+      box-shadow: $boxShadowLight;
+      padding: 11px 22px;
+      background-color: $white;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 136px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        text-transform: capitalize;
+        margin-left: 12px;
+      }
     }
   }
 
@@ -29,7 +35,7 @@
     @include for-desktop(medium) {
       display: grid;
       grid-template-columns: repeat(2, minmax(100px, 1fr));
-      gap: 5em;
+      gap: 2em;
     }
 
     img {
@@ -48,21 +54,41 @@
         grid-template-columns: repeat(2, minmax(100px, 1fr));
       }
 
-      &__left {
-        strong {
-          text-transform: capitalize;
-        }
+      h4 {
         @include for-desktop(medium) {
-          h4 {
-            font-size: 30px;
+          font-size: 30px;
+          grid-column: 1 / -1;
+          display: inline-flex;
+          align-self: center;
+        }
+      }
+
+      @include for-desktop(medium) {
+        :is(&__left, &__right) {
+          display: inline-flex;
+          flex-direction: column;
+          span {
+            margin: 10px 0;
           }
         }
       }
-      &__right {
-        strong {
-          text-transform: capitalize;
-        }
+
+      &__border {
         @include for-desktop(medium) {
+          display: inline-flex;
+          align-self: center;
+          grid-column: -3 / -1;
+        }
+
+        strong {
+          margin-right: 5px;
+        }
+
+        span {
+          box-shadow: $boxShadowLight;
+          border-radius: 3px;
+          padding: 1px 20px;
+          margin: 0 5px;
         }
       }
     }

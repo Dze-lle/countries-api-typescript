@@ -33,11 +33,10 @@ article {
     :is(&__population, &__region, &__capital) {
       margin-top: 10px;
       letter-spacing: 0.0525em;
-    }
-
-    :is(&__population span, &__region span, &__capital span) {
-      text-transform: capitalize;
-      font-weight: bold;
+      span {
+        text-transform: capitalize;
+        font-weight: bold;
+      }
     }
   }
 }
