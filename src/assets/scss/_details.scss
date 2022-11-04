@@ -78,17 +78,24 @@
           display: inline-flex;
           align-self: center;
           grid-column: -3 / -1;
+          font-size: 13px;
+          flex-flow: wrap;
         }
-
         strong {
-          margin-right: 5px;
+          @include for-desktop(medium) {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            padding: 5px 0;
+          }
         }
-
         span {
           box-shadow: $boxShadowLight;
           border-radius: 3px;
-          padding: 1px 20px;
-          margin: 0 5px;
+          @include for-desktop(medium) {
+            margin: 5px 5px;
+            padding: 5px 20px;
+          }
         }
       }
     }

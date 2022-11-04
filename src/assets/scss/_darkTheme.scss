@@ -49,5 +49,36 @@
         }
       }
     }
+
+    .details {
+      background: $darkBlueLight;
+      &__button {
+        .btn {
+          background: $darkBlue;
+          box-shadow: $boxShadowDark;
+          .arrow-icon {
+            color: $white;
+          }
+          span {
+            color: $white;
+          }
+        }
+      }
+      &__container {
+        color: $white;
+        .country {
+          :is(&__left, &__right) {
+            color: $grayLight;
+          }
+          &__border {
+            span {
+              background: $darkBlue;
+              box-shadow: $boxShadowDark;
+              color: $grayLight;
+            }
+          }
+        }
+      }
+    }
   }
 }

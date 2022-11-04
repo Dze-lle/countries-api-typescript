@@ -6,8 +6,9 @@ $darkBlueLight: hsl(209, 23%, 16%); //(Dark Mode Background#2):
 $veryLightGray: hsl(0, 0%, 98%); //(Light Mode Background):
 $veryDarkBlueLight: hsl(200, 15%, 13%); //(Light Mode Text):
 $darkGray: hsl(0, 0%, 52%); // (Light Mode Input):
+$boxShadowDark: 0px 0px 9px 3px #192022;
 
 $white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements):
 $lightShadow: hsl(0, 1%, 90%);
 $grayLight: hsl(0, 0%, 80%); // For Font-Color
-$boxShadowLight: 0px 0px 5px 1px hsl(0deg 1% 80%);
+$boxShadowLight: 0px 0px 5px 1px $grayLight;

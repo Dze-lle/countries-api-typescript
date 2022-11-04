@@ -3,10 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { ICountries } from "../interfaces/interfaces";
 import { getCountryByCode } from "../lib/api";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { useCountries } from "../hooks/useCountries";
 
 const Details = () => {
   const { id } = useParams();
   const [country, setCountry] = useState<ICountries>();
+  const { countries } = useCountries();
 
   const setCountryByCode = async (id: string | undefined) => {
     const data = await getCountryByCode(id);
@@ -66,7 +68,9 @@ const Details = () => {
             <div className="country__border">
               <strong>border countries:</strong>
               {country.borders.map((code, index) => (
-                <span key={index}>{code}</span>
+                <span key={index}>
+                  {countries.find((c) => c.alpha3Code === code)?.name}
+                </span>
               ))}
             </div>
           )}
