@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import { IGlobalTheme } from "../interfaces/interfaces";
+import { ITheme } from "../interfaces/interfaces";
 import { ThemeContext } from "./ThemeContext";
 import { ThemeReducer } from "./ThemeReducer";
 
@@ -7,7 +7,7 @@ const { darkMode } = localStorage.getItem("UI-Theme")
   ? JSON.parse(localStorage.getItem("UI-Theme")!)
   : false;
 
-const INITIAL_STATE: IGlobalTheme = {
+const INITIAL_STATE: ITheme = {
   darkMode: darkMode || false,
 };
 

@@ -1,6 +1,5 @@
 .app {
   background: $veryLightGray;
-  height: 100%;
 
   .loading {
     display: flex;
@@ -10,7 +9,7 @@
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
-    height: 100vh;
+    height: 100%;
     text-transform: capitalize;
   }
 }

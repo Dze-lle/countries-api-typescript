@@ -5,12 +5,12 @@ import { ICountries } from "../../interfaces/interfaces";
 const Article: FC<ICountries> = (country) => {
   const navigate = useNavigate();
 
-  const handleNavigateByCode = (id: string) => {
+  function navigateByCode(id: string) {
     navigate(`/countries-api-typescript/${id}`);
-  };
+  }
 
   return (
-    <article onClick={() => handleNavigateByCode(country.alpha3Code)}>
+    <article onClick={() => navigateByCode(country.alpha3Code)}>
       <img src={country.flags.png} alt={country.name} />
       <div className="description">
         <p className="description__title">{country.name}</p>

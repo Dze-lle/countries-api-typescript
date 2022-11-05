@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { CountryProvider } from "./context/CountryProvider";
+import { CountriesProvider } from "./context/CountriesProvider";
 import { ThemeProvider } from "./context/ThemeProvider";
-import { useTheme } from "./hooks/useTheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,9 +10,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <CountryProvider>
+      <CountriesProvider>
         <App />
-      </CountryProvider>
+      </CountriesProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

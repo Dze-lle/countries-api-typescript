@@ -1,8 +1,8 @@
-import { IGlobalTheme } from "../interfaces/interfaces";
+import { ITheme } from "../interfaces/interfaces";
 
 export type ThemeAction = { type: "TOGGLE_MODE" };
 
-export const ThemeReducer = (state: IGlobalTheme, action: ThemeAction) => {
+export const ThemeReducer = (state: ITheme, action: ThemeAction) => {
   switch (action.type) {
     case "TOGGLE_MODE":
       return {

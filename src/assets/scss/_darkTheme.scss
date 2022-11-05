@@ -17,9 +17,11 @@
 
     .loading {
       color: $white;
+      height: 100vh;
     }
 
     .container {
+      background: $darkBlueLight;
       .search {
         background: $darkBlue;
         box-shadow: 0 0 0.3125em $veryDarkBlueLight;

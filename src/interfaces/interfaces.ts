@@ -1,4 +1,4 @@
-export interface IGlobalTheme {
+export interface ITheme {
   darkMode: boolean;
 }
 
@@ -17,8 +17,10 @@ export interface ICountries {
   borders: [];
 }
 
-export interface IStateContext {
+export interface IStateCountries {
+  initialCountries: ICountries[];
   countries: ICountries[];
   isLoading: boolean;
   isError: boolean;
+  searchValue: string;
 }

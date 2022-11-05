@@ -1,8 +1,17 @@
 import { useContext } from "react";
-import { CountryContext } from "../context/CountryContext";
+import { CountriesContext } from "../context/CountriesContext";
 
 export const useCountries = () => {
-  const { countries, isLoading, isError } = useContext(CountryContext);
+  const { state, dispatch } = useContext(CountriesContext);
+  const { initialCountries, countries, isLoading, isError, searchValue } =
+    state;
 
-  return { countries, isLoading, isError };
+  return {
+    initialCountries,
+    countries,
+    isLoading,
+    isError,
+    searchValue,
+    dispatch,
+  };
 };

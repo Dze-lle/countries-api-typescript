@@ -8,12 +8,13 @@ import { useCountries } from "../hooks/useCountries";
 const Details = () => {
   const { id } = useParams();
   const [country, setCountry] = useState<ICountries>();
-  const { countries } = useCountries();
+  const { initialCountries } = useCountries();
 
-  const setCountryByCode = async (id: string | undefined) => {
+  async function setCountryByCode(id: string | undefined) {
     const data = await getCountryByCode(id);
     setCountry(data);
-  };
+  }
+
   useEffect(() => {
     setCountryByCode(id);
   }, []);
@@ -67,9 +68,9 @@ const Details = () => {
           ) : (
             <div className="country__border">
               <strong>border countries:</strong>
-              {country.borders.map((code, index) => (
+              {country?.borders.map((code, index) => (
                 <span key={index}>
-                  {countries.find((c) => c.alpha3Code === code)?.name}
+                  {initialCountries.find((c) => c.alpha3Code === code)?.name}
                 </span>
               ))}
             </div>
