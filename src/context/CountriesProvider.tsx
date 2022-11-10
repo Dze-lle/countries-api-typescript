@@ -1,5 +1,5 @@
-import { useEffect, useReducer, useState } from "react";
-import { ICountries, IStateCountries } from "../interfaces/interfaces";
+import { useEffect, useMemo, useReducer } from "react";
+import { IStateCountries } from "../interfaces/interfaces";
 import { getListCountries } from "../lib/api";
 import { CountriesContext } from "./CountriesContext";
 import PromisePool from "@supercharge/promise-pool";
@@ -11,10 +11,9 @@ type props = {
 
 const INITIAL_STATE: IStateCountries = {
   initialCountries: [],
-  countries: [],
   isLoading: true,
   isError: false,
-  searchValue: "",
+  query: "",
 };
 
 export const CountriesProvider = ({ children }: props) => {
@@ -31,12 +30,21 @@ export const CountriesProvider = ({ children }: props) => {
       dispatch({ type: "FETCH_ERROR" });
     }
   }
+
   useEffect(() => {
     setListCountries();
   }, []);
 
+  const filterCountries = useMemo(
+    () =>
+      state.initialCountries.filter((item) =>
+        item.name.toLowerCase().includes(state.query)
+      ),
+    [state.initialCountries, state.query]
+  );
+
   return (
-    <CountriesContext.Provider value={{ state, dispatch }}>
+    <CountriesContext.Provider value={{ state, dispatch, filterCountries }}>
       {children}
     </CountriesContext.Provider>
   );

@@ -5,10 +5,9 @@ export type CountriesAction =
       type: "FETCH_COUNTRIES";
       payload: ICountries[];
     }
-  | { type: "FILTER_COUNTRIES" }
   | { type: "FETCH_ERROR" }
-  | { type: "HANDLE_SEARCH"; payload: string }
-  | { type: "SET_DETAILS"; payload: ICountries };
+  | { type: "EVENT_SEARCH"; payload: string }
+  | { type: "FILTER_BY_REGION"; payload: ICountries[] };
 
 export const CountriesReducer = (
   state: IStateCountries,
@@ -23,26 +22,6 @@ export const CountriesReducer = (
         isLoading: false,
       };
 
-    case "HANDLE_SEARCH":
-      return {
-        ...state,
-        searchValue: action.payload,
-      };
-
-    case "FILTER_COUNTRIES":
-      if (!!state.searchValue) {
-        return {
-          ...state,
-          countries: state.initialCountries.filter(
-            (d) => d.name.toLowerCase().indexOf(state.searchValue) !== -1
-          ),
-        };
-      }
-      return {
-        ...state,
-        countries: [],
-      };
-
     case "FETCH_ERROR":
       return {
         ...state,
@@ -50,10 +29,16 @@ export const CountriesReducer = (
         isLoading: false,
       };
 
-    case "SET_DETAILS":
+    case "EVENT_SEARCH":
       return {
         ...state,
-        country: action.payload,
+        query: action.payload,
+      };
+
+    case "FILTER_BY_REGION":
+      return {
+        ...state,
+        countries: action.payload,
       };
 
     default:

@@ -19,8 +19,7 @@ export interface ICountries {
 
 export interface IStateCountries {
   initialCountries: ICountries[];
-  countries: ICountries[];
   isLoading: boolean;
   isError: boolean;
-  searchValue: string;
+  query: string;
 }

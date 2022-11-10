@@ -5,7 +5,7 @@ import { getCountryByCode } from "../lib/api";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useCountries } from "../hooks/useCountries";
 
-const Details = () => {
+function Details() {
   const { id } = useParams();
   const [country, setCountry] = useState<ICountries>();
   const { initialCountries } = useCountries();
@@ -79,6 +79,6 @@ const Details = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Details;

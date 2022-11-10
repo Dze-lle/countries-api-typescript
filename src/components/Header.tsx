@@ -2,7 +2,7 @@ import { FaMoon } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 
-const Header = () => {
+function Header() {
   const { dispatch, darkMode } = useTheme();
 
   return (
@@ -17,6 +17,6 @@ const Header = () => {
       <Outlet />
     </>
   );
-};
+}
 
 export default Header;

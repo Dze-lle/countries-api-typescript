@@ -1,13 +1,12 @@
-import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { ICountries } from "../../interfaces/interfaces";
 
-const Article: FC<ICountries> = (country) => {
+function Article(country: ICountries) {
   const navigate = useNavigate();
 
-  function navigateByCode(id: string) {
+  const navigateByCode = (id: string) => {
     navigate(`/countries-api-typescript/${id}`);
-  }
+  };
 
   return (
     <article onClick={() => navigateByCode(country.alpha3Code)}>
@@ -26,6 +25,6 @@ const Article: FC<ICountries> = (country) => {
       </div>
     </article>
   );
-};
+}
 
 export default Article;

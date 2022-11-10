@@ -1,21 +1,56 @@
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { ChangeEvent } from "react";
 import { FaSearch } from "react-icons/fa";
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 import { useCountries } from "../../hooks/useCountries";
+import { getCountriesByRegion } from "../../lib/api";
 
-const Search: FC = () => {
-  const { initialCountries, searchValue, dispatch } = useCountries();
+interface IOptionType {
+  value: string;
+  label: string;
+}
 
-  const students = [
-    { value: "Alex", label: "Alex" },
-    { value: "Deven", label: "Deven" },
-    { value: "Vinicious", label: "Vinicious" },
-  ];
+function Search() {
+  const { initialCountries, dispatch, query } = useCountries();
 
-  function handleInputSearch(e: ChangeEvent<HTMLInputElement>) {
-    dispatch({ type: "HANDLE_SEARCH", payload: e.target.value });
-    dispatch({ type: "FILTER_COUNTRIES" });
-  }
+  const regions = initialCountries.reduce<IOptionType[]>(
+    (arr, item) => {
+      let found = arr.find((a) => a.value === item.region);
+      if (!found) {
+        arr.push({
+          value: item.region,
+          label: item.region,
+        });
+      }
+      return arr;
+    },
+    [{ value: "All", label: "All" }]
+  );
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch({ type: "EVENT_SEARCH", payload: e.target.value });
+  };
+
+  const handleSelectChange = (option: IOptionType | null) => {
+    // const data = await getCountriesByRegion(option!.value);
+    // dispatch({ type: "FILTER_BY_REGION", payload: data });
+  };
+
+  // const customStyles: StylesConfig<IOptionType, false> = {
+  //   container: (provided) => ({
+  //     ...provided,
+  //     flexGrow: 1,
+  //   }),
+  //   control: (provided) => ({
+  //     ...provided,
+  //     background: "#fff",
+  //     borderColor: "#9e9e9e",
+  //     minHeight: "24px",
+  //   }),
+  //   option: (provided) => ({
+  //     ...provided,
+  //     background: "#fff",
+  //   }),
+  // };
 
   return (
     <div className="form-group">
@@ -23,15 +58,20 @@ const Search: FC = () => {
         <FaSearch className="icon" />
         <input
           type="search"
-          value={searchValue}
+          value={query}
           placeholder="Search for a country"
-          onChange={(e) => handleInputSearch(e)}
+          onChange={handleInputChange}
         />
       </div>
 
-      <Select options={students} />
+      <Select
+        options={regions}
+        // styles={customStyles}
+        // theme={theme}
+        onChange={handleSelectChange}
+      />
     </div>
   );
-};
+}
 
 export default Search;
