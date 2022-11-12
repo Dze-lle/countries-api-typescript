@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { CountriesContext } from "../context/CountriesContext";
 
 export const useCountries = () => {
-  const { state, dispatch, filterCountries } = useContext(CountriesContext);
+  const { state, dispatch, filterCountries, options } =
+    useContext(CountriesContext);
   const { initialCountries, isLoading, isError, query } = state;
 
   return {
@@ -12,5 +13,6 @@ export const useCountries = () => {
     dispatch,
     filterCountries,
     query,
+    options,
   };
 };

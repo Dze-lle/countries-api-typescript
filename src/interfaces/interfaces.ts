@@ -23,3 +23,8 @@ export interface IStateCountries {
   isError: boolean;
   query: string;
 }
+
+export interface ISelectOption {
+  label: string;
+  value: string | number;
+}

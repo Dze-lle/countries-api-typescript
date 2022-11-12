@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useReducer } from "react";
-import { IStateCountries } from "../interfaces/interfaces";
+import { ISelectOption, IStateCountries } from "../interfaces/interfaces";
 import { getListCountries } from "../lib/api";
 import { CountriesContext } from "./CountriesContext";
 import PromisePool from "@supercharge/promise-pool";
@@ -43,8 +43,28 @@ export const CountriesProvider = ({ children }: props) => {
     [state.initialCountries, state.query]
   );
 
+  const options = state.initialCountries.reduce<ISelectOption[]>(
+    (arr, item) => {
+      let found = arr.find((a) => a.label === item.region);
+      let acc = arr.reduce((acc, item) => {
+        return acc + 1;
+      }, 0);
+
+      if (!found) {
+        arr.push({
+          value: acc,
+          label: item.region,
+        });
+      }
+      return arr;
+    },
+    [{ value: 0, label: "All" }]
+  );
+
   return (
-    <CountriesContext.Provider value={{ state, dispatch, filterCountries }}>
+    <CountriesContext.Provider
+      value={{ state, dispatch, filterCountries, options }}
+    >
       {children}
     </CountriesContext.Provider>
   );

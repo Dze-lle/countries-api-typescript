@@ -1,5 +1,5 @@
 .container {
-  padding: 30px 20px;
+  padding: 1.875em 1.25em;
 
   .form-group {
     display: flex;
@@ -8,7 +8,7 @@
     @include for-desktop(medium) {
       flex-direction: row;
       justify-content: space-between;
-      margin-bottom: 50px;
+      margin-bottom: 3.125em;
     }
 
     .search {
@@ -43,12 +43,12 @@
   }
 
   &__article {
-    padding: 0 40px;
+    padding: 0 2.5em;
 
     @include for-desktop(medium) {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
-      padding: 0px;
+      grid-template-columns: repeat(auto-fill, minmax(14.5em, 1fr));
+      padding: 0;
       width: 100%;
       gap: 5em;
     }

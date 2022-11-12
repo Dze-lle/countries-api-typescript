@@ -1,20 +1,19 @@
 .details {
-  // height: calc(100vh - 91.31px);
   height: 100%;
 
   @include for-mobile(small) {
     height: 110%;
   }
 
-  padding: 0 20px;
+  padding: 0 1.25em;
   background: $white;
 
   @include for-desktop(medium) {
-    padding: 0 80px;
+    padding: 0 5em;
   }
 
   &__button {
-    height: 106px;
+    height: 6.625em;
     display: flex;
     align-items: center;
     margin-top: 0.2em;
@@ -22,17 +21,17 @@
       color: $darkBlue;
       text-decoration: none;
       box-shadow: $boxShadowLight;
-      padding: 11px 22px;
+      padding: 0.6875em 1.375em;
       background-color: $white;
-      border-radius: 5px;
+      border-radius: 0.3125em;
       width: 100%;
-      max-width: 136px;
+      max-width: 8.5em;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       span {
         text-transform: capitalize;
-        margin-left: 12px;
+        margin-left: 0.75em;
       }
     }
   }
@@ -40,16 +39,16 @@
   &__container {
     @include for-desktop(medium) {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
       gap: 2em;
     }
 
     img {
       width: 100%;
       @include for-desktop(medium) {
-        max-width: 560px;
+        max-width: 35em;
         height: 100%;
-        max-height: 400px;
+        max-height: 25em;
       }
 
       @include for-mobile(medium) {
@@ -62,17 +61,17 @@
       flex-direction: column;
       @include for-desktop(medium) {
         display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        grid-template-columns: repeat(2, minmax(6.25em, 1fr));
       }
 
       @include for-mobile(medium) {
         grid-row: 2 / 3;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(6.25em, 1fr));
         gap: 2em;
       }
 
       h4 {
-        font-size: 30px;
+        font-size: 1.875em;
         @include for-desktop(medium) {
           grid-column: 1 / -1;
           display: inline-flex;
@@ -86,7 +85,7 @@
         }
 
         span {
-          margin: 5px 0;
+          margin: 0.3125em 0;
           display: block;
         }
       }
@@ -97,7 +96,7 @@
         }
 
         span {
-          margin: 5px 0;
+          margin: 0.3125em 0;
           display: block;
         }
       }
@@ -107,7 +106,7 @@
           display: inline-flex;
           flex-direction: column;
           span {
-            margin: 10px 0;
+            margin: 0.625em 0;
           }
         }
       }
@@ -120,7 +119,7 @@
           display: inline-flex;
           align-self: center;
           grid-column: -3 / -1;
-          font-size: 13px;
+          font-size: 0.8125em;
         }
 
         @include for-mobile(medium) {
@@ -128,17 +127,17 @@
         }
 
         strong {
-          padding: 5px 0;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          margin-right: 5px;
+          padding: 0.3125em 0;
+          margin-top: 0.3125em;
+          margin-bottom: 0.3125em;
+          margin-right: 0.3125em;
         }
 
         span {
           box-shadow: $boxShadowLight;
-          border-radius: 3px;
-          margin: 5px 5px;
-          padding: 5px 20px;
+          border-radius: 0.1875em;
+          margin: 0.3125em 0.3125em;
+          padding: 0.3125em 1.25em;
         }
       }
     }
