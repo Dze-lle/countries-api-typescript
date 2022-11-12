@@ -22,6 +22,7 @@ export interface IStateCountries {
   isLoading: boolean;
   isError: boolean;
   query: string;
+  countries: ICountries[];
 }
 
 export interface ISelectOption {

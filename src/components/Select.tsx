@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ISelectOption } from "../interfaces/interfaces";
+import { FaAngleDown } from "react-icons/fa";
 
 type SelectProps = {
   options: ISelectOption[];
@@ -9,15 +10,7 @@ type SelectProps = {
 
 function Select({ value, onChange, options }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [highlightedIndex, setHighlightedIndex] = useState(0);
-
   const selectOption = (option: ISelectOption) => onChange(option);
-
-  const isOptionSelected = (option: ISelectOption) => option === value;
-
-  useEffect(() => {
-    if (isOpen) setHighlightedIndex(0);
-  }, [isOpen]);
 
   return (
     <div
@@ -29,21 +22,17 @@ function Select({ value, onChange, options }: SelectProps) {
       <span className="value">
         {value?.label !== undefined ? value?.label : `Filter by Region`}
       </span>
-      <span className="caret"></span>
+      <FaAngleDown />
       <ul className={isOpen ? `options show` : `options`}>
-        {options.map((option, index) => (
+        {options.map((option) => (
           <li
-            onMouseEnter={() => setHighlightedIndex(index)}
             onClick={(e) => {
               e.stopPropagation();
               selectOption(option);
               setIsOpen(false);
             }}
             key={option.value}
-            className={`option
-            ${index === highlightedIndex ? "highlighted" : ""} ${
-              isOptionSelected(option) ? "selected" : ""
-            }`}
+            className="option"
           >
             {option.label}
           </li>

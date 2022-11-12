@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { ISelectOption, IStateCountries } from "../interfaces/interfaces";
 import { getListCountries } from "../lib/api";
 import { CountriesContext } from "./CountriesContext";
@@ -14,6 +14,7 @@ const INITIAL_STATE: IStateCountries = {
   isLoading: true,
   isError: false,
   query: "",
+  countries: [],
 };
 
 export const CountriesProvider = ({ children }: props) => {
@@ -35,14 +36,6 @@ export const CountriesProvider = ({ children }: props) => {
     setListCountries();
   }, []);
 
-  const filterCountries = useMemo(
-    () =>
-      state.initialCountries.filter((item) =>
-        item.name.toLowerCase().includes(state.query)
-      ),
-    [state.initialCountries, state.query]
-  );
-
   const options = state.initialCountries.reduce<ISelectOption[]>(
     (arr, item) => {
       let found = arr.find((a) => a.label === item.region);
@@ -58,13 +51,11 @@ export const CountriesProvider = ({ children }: props) => {
       }
       return arr;
     },
-    [{ value: 0, label: "All" }]
+    []
   );
 
   return (
-    <CountriesContext.Provider
-      value={{ state, dispatch, filterCountries, options }}
-    >
+    <CountriesContext.Provider value={{ state, dispatch, options }}>
       {children}
     </CountriesContext.Provider>
   );

@@ -2,14 +2,16 @@
   position: relative;
   width: 100%;
   max-width: 12.5em;
-  border: 0.05em solid #777;
+  box-shadow: 0 0 0.3125em $lightShadow;
   display: flex;
   align-items: center;
   gap: 0.5em;
-  padding: 0.2em 0.75em;
-  border-radius: 0.25em;
+  padding: 0.2em 1.5625em;
+  border-radius: 0.3125em;
   outline: none;
   height: 3.125em;
+  background: $white;
+  height: 3.5em;
 
   .value {
     flex-grow: 1;
@@ -19,44 +21,31 @@
     border-color: hsl(200, 100%, 50%);
   }
 
-  .caret {
-    border: 0.25em solid transparent;
-    border-top-color: #777;
-    translate: 0 25%;
-  }
-
   .options {
     position: absolute;
     margin: 0;
-    padding: 0;
+    padding: 0.5em 1em;
     list-style: none;
     display: none;
     max-height: 10.1875em;
     overflow-y: auto;
-    border: 0.05em solid #777;
-    border-radius: 0.25em;
+    box-shadow: 0 0 0.3125em $lightShadow;
+    border-radius: 0.3125em;
     width: 100%;
     left: 0;
-    top: calc(100% + 0.25em);
-    background: White;
+    top: calc(100% + 0.5em);
+    background: $white;
     z-index: 100;
+    font-family: inherit;
   }
 
   .options.show {
     display: block;
 
     .option {
-      padding: 0.25em 0.5em;
+      margin: 0.75em 0;
+      padding: 0 0.5em;
       cursor: pointer;
-    }
-
-    .option.selected {
-      background-color: hsl(200, 100%, 90%);
-    }
-
-    .option.highlighted {
-      background-color: hsl(200, 100%, 50%);
-      color: white;
     }
   }
 }

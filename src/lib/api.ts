@@ -15,7 +15,7 @@ export const getCountryByCode = async (
 };
 
 export const getCountriesByRegion = async (
-  region: string
+  region: string | undefined
 ): Promise<ICountries[]> => {
   const response = await fetch(`${BASE_URL}/region/${region}`);
   return await response.json();

@@ -2,16 +2,15 @@ import { useContext } from "react";
 import { CountriesContext } from "../context/CountriesContext";
 
 export const useCountries = () => {
-  const { state, dispatch, filterCountries, options } =
-    useContext(CountriesContext);
-  const { initialCountries, isLoading, isError, query } = state;
+  const { state, dispatch, options } = useContext(CountriesContext);
+  const { initialCountries, countries, isLoading, isError, query } = state;
 
   return {
     initialCountries,
     isLoading,
     isError,
     dispatch,
-    filterCountries,
+    countries,
     query,
     options,
   };

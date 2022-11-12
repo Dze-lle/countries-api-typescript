@@ -33,6 +33,18 @@
         }
       }
 
+      .select__container {
+        background: $darkBlue;
+        box-shadow: 0 0 0.3125em $veryDarkBlueLight;
+        color: $white;
+
+        .options.show {
+          background: $darkBlue;
+          box-shadow: 0 0 0.3125em $veryDarkBlueLight;
+          color: $white;
+        }
+      }
+
       &__article {
         article {
           background: $darkBlue;

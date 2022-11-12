@@ -7,6 +7,7 @@ export type CountriesAction =
     }
   | { type: "FETCH_ERROR" }
   | { type: "EVENT_SEARCH"; payload: string }
+  | { type: "SEARCH_COUNTRIES" }
   | { type: "FILTER_BY_REGION"; payload: ICountries[] };
 
 export const CountriesReducer = (
@@ -33,6 +34,20 @@ export const CountriesReducer = (
       return {
         ...state,
         query: action.payload,
+      };
+
+    case "SEARCH_COUNTRIES":
+      if (!!state.query) {
+        return {
+          ...state,
+          countries: state.initialCountries.filter(
+            (d) => d.name.toLowerCase().indexOf(state.query) !== -1
+          ),
+        };
+      }
+      return {
+        ...state,
+        countries: [],
       };
 
     case "FILTER_BY_REGION":
