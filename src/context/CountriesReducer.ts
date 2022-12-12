@@ -33,7 +33,7 @@ export const CountriesReducer = (
     case "EVENT_SEARCH":
       return {
         ...state,
-        query: action.payload,
+        query: action.payload.toLowerCase(),
       };
 
     case "SEARCH_COUNTRIES":

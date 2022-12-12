@@ -25,7 +25,8 @@ export const CountriesProvider = ({ children }: props) => {
       const data = await getListCountries();
       const { results } = await PromisePool.withConcurrency(20)
         .for(data)
-        .process(async (res) => await res);
+        .process(async (res) => res);
+
       dispatch({ type: "FETCH_COUNTRIES", payload: results });
     } catch (err) {
       dispatch({ type: "FETCH_ERROR" });
@@ -39,13 +40,11 @@ export const CountriesProvider = ({ children }: props) => {
   const options = state.initialCountries.reduce<ISelectOption[]>(
     (arr, item) => {
       let found = arr.find((a) => a.label === item.region);
-      let acc = arr.reduce((acc, item) => {
-        return acc + 1;
-      }, 0);
+      let id = arr.reduce((acc, _) => acc + 1, 0);
 
       if (!found) {
         arr.push({
-          value: acc,
+          value: id,
           label: item.region,
         });
       }
