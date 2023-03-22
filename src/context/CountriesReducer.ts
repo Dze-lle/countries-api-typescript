@@ -6,8 +6,8 @@ export type CountriesAction =
       payload: ICountries[];
     }
   | { type: "FETCH_ERROR" }
-  | { type: "EVENT_SEARCH"; payload: string }
-  | { type: "SEARCH_COUNTRIES" }
+  // | { type: "EVENT_SEARCH"; payload: string }
+  | { type: "SEARCH_COUNTRIES"; payload: string }
   | { type: "FILTER_BY_REGION"; payload: ICountries[] };
 
 export const CountriesReducer = (
@@ -30,30 +30,33 @@ export const CountriesReducer = (
         isLoading: false,
       };
 
-    case "EVENT_SEARCH":
-      return {
-        ...state,
-        query: action.payload.toLowerCase(),
-      };
+    // case "EVENT_SEARCH":
+    //   return {
+    //     ...state,
+    //     query: action.payload.toLowerCase(),
+    //   };
 
     case "SEARCH_COUNTRIES":
-      if (!!state.query) {
+      if (!!action.payload) {
         return {
           ...state,
           countries: state.initialCountries.filter(
-            (d) => d.name.toLowerCase().indexOf(state.query) !== -1
+            (d) => d.name.toLowerCase().indexOf(action.payload) !== -1
           ),
+          query: action.payload,
         };
       }
       return {
         ...state,
         countries: [],
+        query: "",
       };
 
     case "FILTER_BY_REGION":
       return {
         ...state,
         countries: action.payload,
+        query: state.query !== "" ? (state.query = "") : "",
       };
 
     default:
