@@ -10,13 +10,13 @@ function Details() {
   const [country, setCountry] = useState<ICountries>();
   const { initialCountries } = useCountries();
 
-  async function setCountryByCode(id: string | undefined) {
+  async function setCountryByCode(id: string) {
     const data = await getCountryByCode(id);
     setCountry(data);
   }
 
   useEffect(() => {
-    setCountryByCode(id);
+    setCountryByCode(id!);
   }, []);
 
   return (

@@ -11,14 +11,12 @@ function Search() {
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(undefined);
-    // dispatch({ type: "EVENT_SEARCH", payload: e.target.value });
     dispatch({ type: "SEARCH_COUNTRIES", payload: e.target.value });
   };
 
-  const handleFilter = async (option: ISelectOption | undefined) => {
+  const handleFilter = async (option: ISelectOption) => {
     const data = await getCountriesByRegion(option?.label);
 
-    // dispatch({ type: "EVENT_SEARCH", payload: "" });
     dispatch({ type: "FILTER_BY_REGION", payload: data });
   };
 
@@ -37,7 +35,7 @@ function Search() {
       <Select
         value={value}
         onChange={(o) => {
-          handleFilter(o);
+          handleFilter(o!);
           setValue(o);
         }}
         options={options}
