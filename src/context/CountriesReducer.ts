@@ -1,21 +1,21 @@
-import { ICountries, IStateCountries } from "../interfaces/interfaces";
+import { Countries, StateCountries } from '../interfaces/interfaces';
 
 export type CountriesAction =
   | {
-      type: "FETCH_COUNTRIES";
-      payload: ICountries[];
+      type: 'FETCH_COUNTRIES';
+      payload: Countries[];
     }
-  | { type: "FETCH_ERROR" }
+  | { type: 'FETCH_ERROR' }
   // | { type: "EVENT_SEARCH"; payload: string }
-  | { type: "SEARCH_COUNTRIES"; payload: string }
-  | { type: "FILTER_BY_REGION"; payload: ICountries[] };
+  | { type: 'SEARCH_COUNTRIES'; payload: string }
+  | { type: 'FILTER_BY_REGION'; payload: Countries[] };
 
 export const CountriesReducer = (
-  state: IStateCountries,
+  state: StateCountries,
   action: CountriesAction
 ) => {
   switch (action.type) {
-    case "FETCH_COUNTRIES":
+    case 'FETCH_COUNTRIES':
       return {
         ...state,
         initialCountries: action.payload,
@@ -23,7 +23,7 @@ export const CountriesReducer = (
         isLoading: false,
       };
 
-    case "FETCH_ERROR":
+    case 'FETCH_ERROR':
       return {
         ...state,
         isError: true,
@@ -36,7 +36,7 @@ export const CountriesReducer = (
     //     query: action.payload.toLowerCase(),
     //   };
 
-    case "SEARCH_COUNTRIES":
+    case 'SEARCH_COUNTRIES':
       if (!!action.payload) {
         return {
           ...state,
@@ -49,14 +49,14 @@ export const CountriesReducer = (
       return {
         ...state,
         countries: [],
-        query: "",
+        query: '',
       };
 
-    case "FILTER_BY_REGION":
+    case 'FILTER_BY_REGION':
       return {
         ...state,
         countries: action.payload,
-        query: state.query !== "" ? (state.query = "") : "",
+        query: state.query !== '' ? (state.query = '') : '',
       };
 
     default:

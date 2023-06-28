@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { ICountries } from "../interfaces/interfaces";
-import { getCountryByCode } from "../lib/api";
-import { FaLongArrowAltLeft } from "react-icons/fa";
-import { useCountries } from "../hooks/useCountries";
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Countries } from '../interfaces/interfaces';
+import { getCountryByCode } from '../lib/api';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
+import { useCountries } from '../hooks/useCountries';
 
 function Details() {
   const { id } = useParams();
-  const [country, setCountry] = useState<ICountries>();
+  const [country, setCountry] = useState<Countries>();
   const { initialCountries } = useCountries();
 
   async function setCountryByCode(id: string) {
@@ -37,8 +37,8 @@ function Details() {
               <strong>native name:</strong> {country?.nativeName}
             </span>
             <span>
-              <strong>population:</strong>{" "}
-              {country?.population.toLocaleString("en-US")}
+              <strong>population:</strong>{' '}
+              {country?.population.toLocaleString('en-US')}
             </span>
             <span>
               <strong>region:</strong> {country?.region}
@@ -55,12 +55,12 @@ function Details() {
               <strong>top level domain:</strong> {country?.topLevelDomain}
             </span>
             <span>
-              <strong>currencies:</strong>{" "}
+              <strong>currencies:</strong>{' '}
               {country?.currencies.map((a) => a.name)}
             </span>
             <span>
-              <strong>languages:</strong>{" "}
-              {country?.languages.map((a) => a.name).join(", ")}
+              <strong>languages:</strong>{' '}
+              {country?.languages.map((a) => a.name).join(', ')}
             </span>
           </div>
           {country?.borders === undefined ? (

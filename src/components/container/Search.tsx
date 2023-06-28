@@ -1,23 +1,23 @@
-import { ChangeEvent, useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import { useCountries } from "../../hooks/useCountries";
-import { ISelectOption } from "../../interfaces/interfaces";
-import { getCountriesByRegion } from "../../lib/api";
-import Select from "../Select";
+import { ChangeEvent, useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { useCountries } from '../../hooks/useCountries';
+import { SelectOption } from '../../interfaces/interfaces';
+import { getCountriesByRegion } from '../../lib/api';
+import Select from '../Select';
 
 function Search() {
   const { dispatch, query, options } = useCountries();
-  const [value, setValue] = useState<ISelectOption | undefined>();
+  const [value, setValue] = useState<SelectOption | undefined>();
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(undefined);
-    dispatch({ type: "SEARCH_COUNTRIES", payload: e.target.value });
+    dispatch({ type: 'SEARCH_COUNTRIES', payload: e.target.value });
   };
 
-  const handleFilter = async (option: ISelectOption) => {
+  const handleFilter = async (option: SelectOption) => {
     const data = await getCountriesByRegion(option?.label);
 
-    dispatch({ type: "FILTER_BY_REGION", payload: data });
+    dispatch({ type: 'FILTER_BY_REGION', payload: data });
   };
 
   return (

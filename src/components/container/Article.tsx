@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { ICountries } from "../../interfaces/interfaces";
+import { useNavigate } from 'react-router-dom';
+import { Countries } from '../../interfaces/interfaces';
 
-function Article(country: ICountries) {
+function Article(country: Countries) {
   const navigate = useNavigate();
 
   const navigateByCode = (id: string) => {
@@ -14,7 +14,7 @@ function Article(country: ICountries) {
       <div className="description">
         <p className="description__title">{country.name}</p>
         <p className="description__population">
-          <span>population:</span> {country.population.toLocaleString("en-US")}
+          <span>population:</span> {country.population.toLocaleString('en-US')}
         </p>
         <p className="description__region">
           <span>region:</span> {country.region}

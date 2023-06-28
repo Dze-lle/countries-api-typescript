@@ -1,11 +1,11 @@
-import { createContext, Dispatch } from "react";
-import { ISelectOption, IStateCountries } from "../interfaces/interfaces";
-import { CountriesAction } from "./CountriesReducer";
+import { createContext, Dispatch } from 'react';
+import { SelectOption, StateCountries } from '../interfaces/interfaces';
+import { CountriesAction } from './CountriesReducer';
 
 type CountriesContextProps = {
-  state: IStateCountries;
+  state: StateCountries;
   dispatch: Dispatch<CountriesAction>;
-  options: ISelectOption[];
+  options: SelectOption[];
 };
 
 export const CountriesContext = createContext<CountriesContextProps>(

@@ -1,8 +1,8 @@
-export interface ITheme {
+export interface Theme {
   darkMode: boolean;
 }
 
-export interface ICountries {
+export interface Countries {
   alpha3Code: string;
   topLevelDomain: string;
   capital: string;
@@ -17,15 +17,15 @@ export interface ICountries {
   borders: [];
 }
 
-export interface IStateCountries {
-  initialCountries: ICountries[];
+export interface StateCountries {
+  initialCountries: Countries[];
   isLoading: boolean;
   isError: boolean;
   query: string;
-  countries: ICountries[];
+  countries: Countries[];
 }
 
-export interface ISelectOption {
+export interface SelectOption {
   label: string;
   value: string | number;
 }

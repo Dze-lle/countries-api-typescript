@@ -1,9 +1,9 @@
-import { createContext, Dispatch } from "react";
-import { ITheme } from "../interfaces/interfaces";
-import { ThemeAction } from "./ThemeReducer";
+import { createContext, Dispatch } from 'react';
+import { Theme } from '../interfaces/interfaces';
+import { ThemeAction } from './ThemeReducer';
 
 type ThemeContextProps = {
-  globalTheme: ITheme;
+  globalTheme: Theme;
   dispatch: Dispatch<ThemeAction>;
 };
 
